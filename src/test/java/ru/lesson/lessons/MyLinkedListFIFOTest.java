@@ -43,6 +43,25 @@ public class MyLinkedListFIFOTest {
         assertEquals(1, myLinkedListFIFO.size());
     }
     @Test
+    public void testAddByIndex() throws Exception {
+        Client client1 = new Client("Name1",new Cat("Cat1"));
+        Client client2 = new Client("Name2",new Cat("Cat2"));
+        Client client3 = new Client("Name3",new Cat("Cat3"));
+        MyLinkedListFIFO myLinkedListFIFO = new MyLinkedListFIFO();
+        myLinkedListFIFO.add(client1);
+        myLinkedListFIFO.addByIndex(1, client2);
+        myLinkedListFIFO.addByIndex(2, client3);
+        assertEquals(3, myLinkedListFIFO.size());
+    }
+    @Test(expected = LinkedListException.class)
+    public void testAddByIndexException() throws Exception {
+        Client client1 = new Client("Name1",new Cat("Cat1"));
+        Client client2 = new Client("Name2",new Cat("Cat2"));
+        MyLinkedListFIFO myLinkedListFIFO = new MyLinkedListFIFO();
+        myLinkedListFIFO.add(client1);
+        myLinkedListFIFO.addByIndex(2,client2);
+     }
+    @Test
     public void testGetFirst() throws Exception {
         Client client = new Client("Name",new Cat("Cat"));
         Client client2 = new Client("Name2", new Dog("Dog"));

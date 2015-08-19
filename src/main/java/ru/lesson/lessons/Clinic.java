@@ -174,25 +174,4 @@ public class Clinic {
     public int getSize() {
         return clients.size();
     }
-
-    public static void main(String[] args) throws LinkedListException,CustomInputException {
-        Client client1 = new Client("Name1", new Cat("Cat1"));
-        Client client2 = new Client("Name2", new Cat("Cat2"));
-        Client client3 = new Client("Name3", new Cat("Cat3"));
-        Client client4 = new Client("Name4", new Cat("Cat4"));
-        Client client5 = new Client("Name5", new Cat("Cat5"));
-
-        Clinic clinic = new Clinic();
-        clinic.addClient(client1);
-        clinic.addClient(client2);
-        clinic.addClient(client3);
-        clinic.addClient(client4);
-        clinic.addClient(client5);
-        clinic.printClinic();
-
-        clinic.removeClientByName("Name3");
-        clinic.printClinic();
-
-
-    }
 }

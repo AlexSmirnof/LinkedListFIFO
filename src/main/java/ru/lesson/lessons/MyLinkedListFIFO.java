@@ -75,10 +75,16 @@ public class MyLinkedListFIFO implements Iterable{
      * @param client
      */
     public void addFirst(final Client client){
-        Node<Client> newNode = new Node<>(client,header);
-        header.next = newNode;
-        header.prev = newNode;
-        size++;
+        if(isEmpty()){
+            Node<Client> newNode = new Node<>(client,header);
+            header.next = newNode;
+            header.prev = newNode;
+            size++;
+        } else{
+            Node<Client> newNode = new Node<>(client,getFirst());
+            header.next = newNode;
+            size++;
+        }
     }
     /**
      * Add client to MyArrayListFIFO
@@ -92,6 +98,22 @@ public class MyLinkedListFIFO implements Iterable{
             Node<Client> newNode = new Node<>(client, header);
             nextNode.next =newNode;
             header.prev = newNode;
+            size++;
+        }
+    }
+    /**
+     * Add client by index into MyArrayListFIFO
+     * @param index
+     * @param client
+     * @throws LinkedListException
+     */
+    public void addByIndex(final int index, final Client client) throws LinkedListException {
+        checkIndex(index);
+        if(index == 1)
+            addFirst(client);
+         else {
+            Node<Client> newNode = new Node<>(client,getNode(index));
+            getNode(index-1).next = newNode;
             size++;
         }
     }

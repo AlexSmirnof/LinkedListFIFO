@@ -17,4 +17,5 @@ public class Animal implements IPet {
     public void setName(final String name) {
         this.name = name;
     }
-}
+
+   }
